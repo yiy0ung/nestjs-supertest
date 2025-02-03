@@ -1,0 +1,13 @@
+node_modules/
+src/
+test/
+example/
+
+*.*ignore
+.eslintrc.js
+.prettierrc
+
+tsconfig.json
+tsconfig.build.json
+
+.npmrc
