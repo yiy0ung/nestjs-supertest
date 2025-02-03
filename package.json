@@ -11,7 +11,7 @@
     "type-check": "tsc --noEmit --watch",
     "pretest": "npm run build",
     "test": "cd ./test && node ../dist/src/cli/nestjs-supertest.js -i './src/**/*.controller.ts' -o './src/apis' -p './tsconfig.json'",
-    "deploy": "npm run build && npm publish"
+    "deploy": "pnpm run build && pnpm publish"
   },
   "keywords": [],
   "peerDependencies": {
