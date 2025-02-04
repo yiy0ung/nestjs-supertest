@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "yiyoung",
   "license": "MIT",
+  "bin": {
+    "nestjs-supertest": "./dist/src/cli/nestjs-supertest.js"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tspc -p tsconfig.json",
