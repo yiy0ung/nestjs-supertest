@@ -72,7 +72,7 @@ export namespace FunctionGenerator {
       })()}\n` +
       `  export type Response = ${route.returnType};\n` +
       `\n` +
-      `  export const METHOD = '${route.method}' as const;\n` +
+      `  export const METHOD = '${route.method.toLowerCase()}' as const;\n` +
       `  export const PATH: string = '${route.path}';\n` +
       `}`
     );
