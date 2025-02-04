@@ -1,6 +1,7 @@
 /**
  * @module api.spec.main.users
  */
+import supertest from 'supertest';
 import { Requester } from '../../../__internal';
 
 import { UserResponseDto, IUser } from '../../../../structures/IMember';
@@ -11,14 +12,17 @@ import { UserResponseDto, IUser } from '../../../../structures/IMember';
 export async function getUser(
   connection: Requester.IConnection,
   params: getUser.Parameters,
-): Promise<getUser.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getUser.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getUser.METHOD,
     getUser.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getUser {
   export type PathParams = {
     userId: number;
@@ -41,14 +45,17 @@ export namespace getUser {
 export async function updateUser(
   connection: Requester.IConnection,
   params: updateUser.Parameters,
-): Promise<updateUser.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: updateUser.Response
+}> {
+  const resp = await Requester.request(
     connection,
     updateUser.METHOD,
     updateUser.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace updateUser {
   export type PathParams = {
     userId: string;

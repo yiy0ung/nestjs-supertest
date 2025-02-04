@@ -1,6 +1,7 @@
 /**
  * @module api.spec.v3.main.posts
  */
+import supertest from 'supertest';
 import { Requester } from '../../../../__internal';
 
 import { IPost } from '../../../../../structures/IPost';
@@ -13,14 +14,17 @@ import { ApiResult } from '../../../../../structures/index';
 export async function getPostList(
   connection: Requester.IConnection,
   params: getPostList.Parameters,
-): Promise<getPostList.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getPostList.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getPostList.METHOD,
     getPostList.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getPostList {
   export type Query = IPost.ListQueryDto &
     { option1: string } &
@@ -40,14 +44,17 @@ export namespace getPostList {
 export async function getPost(
   connection: Requester.IConnection,
   params: getPost.Parameters,
-): Promise<getPost.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getPost.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getPost.METHOD,
     getPost.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getPost {
   export type PathParams = {
     id: string;
@@ -67,14 +74,17 @@ export namespace getPost {
 export async function getPostLinkedTags(
   connection: Requester.IConnection,
   params: getPostLinkedTags.Parameters,
-): Promise<getPostLinkedTags.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getPostLinkedTags.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getPostLinkedTags.METHOD,
     getPostLinkedTags.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getPostLinkedTags {
   export type PathParams = {
     id: string;

@@ -1,5 +1,5 @@
 import fs from 'fs';
-import path, * as NodePath from 'path';
+import * as NodePath from 'path';
 import { IRoute } from '../structures';
 import { FunctionGenerator } from './function.generator';
 
@@ -91,6 +91,7 @@ export namespace FileGenerator {
     // build the content
     if (directory.routes.length !== 0) {
       const head: string[] = [
+        `import supertest from 'supertest';`,
         `import { Requester } from '${NodePath.relative(outDir, bundlePath)}';`,
       ];
       if (importDict.size) head.push('', importDict.toScript(outDir));

@@ -1,6 +1,7 @@
 /**
  * @module api.spec.v2.main
  */
+import supertest from 'supertest';
 import { Requester } from '../../../__internal';
 
 import { IUser, UserResponseDto } from '../../../../structures/IMember';
@@ -11,14 +12,17 @@ import { IUser, UserResponseDto } from '../../../../structures/IMember';
 export async function getAliasUser(
   connection: Requester.IConnection,
   params: getAliasUser.Parameters,
-): Promise<getAliasUser.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getAliasUser.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getAliasUser.METHOD,
     getAliasUser.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getAliasUser {
   export type Parameters = {}
   export type Response = { name: string };
@@ -33,14 +37,17 @@ export namespace getAliasUser {
 export async function getUnionUser(
   connection: Requester.IConnection,
   params: getUnionUser.Parameters,
-): Promise<getUnionUser.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getUnionUser.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getUnionUser.METHOD,
     getUnionUser.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getUnionUser {
   export type Parameters = {}
   export type Response = IUser.IUnion1 | IUser.IUnion2;
@@ -55,14 +62,17 @@ export namespace getUnionUser {
 export async function getIntersectionUser(
   connection: Requester.IConnection,
   params: getIntersectionUser.Parameters,
-): Promise<getIntersectionUser.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: getIntersectionUser.Response
+}> {
+  const resp = await Requester.request(
     connection,
     getIntersectionUser.METHOD,
     getIntersectionUser.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace getIntersectionUser {
   export type Parameters = {}
   export type Response = IUser.IIntersection1 | IUser.IIntersection2;
@@ -82,14 +92,17 @@ export namespace getIntersectionUser {
 export async function createUser(
   connection: Requester.IConnection,
   params: createUser.Parameters,
-): Promise<createUser.Response> {
-  return await Requester.request(
+): Promise<{
+  resp: supertest.Response
+  data: createUser.Response
+}> {
+  const resp = await Requester.request(
     connection,
     createUser.METHOD,
     createUser.PATH,
     params,
   )
-}
+  return { resp, data: resp.body }}
 export namespace createUser {
   export type Body = IUser.CreateDto;
   export type Parameters = {

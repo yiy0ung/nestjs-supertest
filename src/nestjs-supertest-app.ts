@@ -17,7 +17,7 @@ export class NestjsSupertestApp {
   private configs: Configs;
 
   constructor(configs: Configs) {
-    configs.output = NodePath.join(configs.output, '/functional');
+    configs.output = NodePath.join(configs.output, '/supertest-client');
     this.configs = configs;
   }
 

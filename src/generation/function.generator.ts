@@ -31,13 +31,17 @@ export namespace FunctionGenerator {
       `export async function ${route.name}(\n` +
       `  connection: Requester.IConnection,\n` +
       `  params: ${route.name}.Parameters,\n` +
-      `): Promise<${route.name}.Response> {\n` +
-      `  return await Requester.request(\n` +
+      `): Promise<{\n` +
+      `  resp: supertest.Response\n` +
+      `  data: ${route.name}.Response\n` +
+      `}> {\n` +
+      `  const resp = await Requester.request(\n` +
       `    connection,\n` +
       `    ${route.name}.METHOD,\n` +
       `    ${route.name}.PATH,\n` +
       `    params,\n` +
       `  )\n` +
+      `  return { resp, data: resp.body }` +
       `}`
     );
   }

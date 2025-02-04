@@ -19,7 +19,7 @@ export namespace Requester {
     method: 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE',
     path: string,
     params: Parameters,
-  ): Promise<any> {
+  ): Promise<supertest.Response> {
     if (params.path) {
       Object.entries(params.path).map(([field, value]) => {
         path = path.replace(`:${field}`, encodeURIComponent(value));

@@ -10,7 +10,7 @@ export namespace SupertestGenerator {
     bundlePath: string,
     routes: IRoute[],
   ): Promise<void> {
-    const specPath = NodePath.join(configs.output, 'supertest-client');
+    const specPath = NodePath.join(configs.output, 'apis');
 
     try {
       await fs.promises.mkdir(specPath);
