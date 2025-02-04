@@ -27,7 +27,7 @@ export namespace getAliasUser {
   export type Parameters = {}
   export type Response = { name: string };
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/v2/main/alias-users';
 }
 
@@ -52,7 +52,7 @@ export namespace getUnionUser {
   export type Parameters = {}
   export type Response = IUser.IUnion1 | IUser.IUnion2;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/v2/main/union-users';
 }
 
@@ -77,7 +77,7 @@ export namespace getIntersectionUser {
   export type Parameters = {}
   export type Response = IUser.IIntersection1 | IUser.IIntersection2;
 
-  export const METHOD = 'POST' as const;
+  export const METHOD = 'post' as const;
   export const PATH: string = '/v2/main/intersection-users';
 }
 
@@ -110,6 +110,6 @@ export namespace createUser {
   };
   export type Response = UserResponseDto;
 
-  export const METHOD = 'POST' as const;
+  export const METHOD = 'post' as const;
   export const PATH: string = '/v2/main/users';
 }

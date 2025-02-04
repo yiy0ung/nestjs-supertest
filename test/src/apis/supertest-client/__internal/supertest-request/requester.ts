@@ -16,7 +16,7 @@ export namespace Requester {
 
   export async function request(
     connection: IConnection,
-    method: 'POST' | 'GET' | 'PUT' | 'PATCH' | 'DELETE',
+    method: 'post' | 'get' | 'put' | 'patch' | 'delete',
     path: string,
     params: Parameters,
   ): Promise<supertest.Response> {

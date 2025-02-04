@@ -27,7 +27,7 @@ export namespace getArrayData {
   export type Parameters = {}
   export type Response = IPost.ISub.IArrayData;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main/v1/array';
 }
 
@@ -52,7 +52,7 @@ export namespace getGenericData1 {
   export type Parameters = {}
   export type Response = ApiResult<IPost.ISub.IGeneric<PostType>>;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main/v1/array';
 }
 
@@ -77,6 +77,6 @@ export namespace getGenericData2 {
   export type Parameters = {}
   export type Response = ApiResult<IPost.ISub.IGeneric<PostType2.Normal>>;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main/v1/array';
 }

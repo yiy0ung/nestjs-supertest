@@ -25,7 +25,7 @@ export namespace getHello {
   export type Parameters = {}
   export type Response = string;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main';
 }
 
@@ -47,7 +47,7 @@ export namespace getHello2 {
   export type Parameters = {}
   export type Response = string;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main';
 }
 
@@ -69,6 +69,6 @@ export namespace getHello3 {
   export type Parameters = {}
   export type Response = string;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main';
 }

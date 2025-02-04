@@ -37,7 +37,7 @@ export namespace getPostList {
   };
   export type Response = ApiResult<Array<IPost.IData>>;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/v3/main/posts';
 }
 
@@ -64,7 +64,7 @@ export namespace getPost {
   };
   export type Response = IPost.IData;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/v3/main/posts/:id';
 }
 
@@ -94,6 +94,6 @@ export namespace getPostLinkedTags {
   };
   export type Response = ApiResult<IPost.Tags>;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/v3/main/posts/:id/linked-tags';
 }

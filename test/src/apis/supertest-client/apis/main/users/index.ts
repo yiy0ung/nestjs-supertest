@@ -32,7 +32,7 @@ export namespace getUser {
   };
   export type Response = UserResponseDto;
 
-  export const METHOD = 'GET' as const;
+  export const METHOD = 'get' as const;
   export const PATH: string = '/main/users/:userId';
 }
 
@@ -69,6 +69,6 @@ export namespace updateUser {
   };
   export type Response = UserResponseDto;
 
-  export const METHOD = 'PUT' as const;
+  export const METHOD = 'put' as const;
   export const PATH: string = '/main/users/:userId';
 }
