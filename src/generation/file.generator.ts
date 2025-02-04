@@ -91,7 +91,7 @@ export namespace FileGenerator {
     // build the content
     if (directory.routes.length !== 0) {
       const head: string[] = [
-        `import supertest from 'supertest';`,
+        `import * as supertest from 'supertest';`,
         `import { Requester } from '${NodePath.relative(outDir, bundlePath)}';`,
       ];
       if (importDict.size) head.push('', importDict.toScript(outDir));

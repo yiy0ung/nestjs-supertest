@@ -1,4 +1,4 @@
-import supertest from 'supertest';
+import * as supertest from 'supertest';
 import { SupertestClientConnectionDefaults, RequesterConnection } from './requester-connection';
 
 export namespace Requester {
