@@ -1,5 +1,5 @@
 import fs from 'fs';
-import * as NodePath from 'path';
+import path, * as NodePath from 'path';
 import { IRoute } from '../structures';
 import { FunctionGenerator } from './function.generator';
 
@@ -143,14 +143,15 @@ export namespace FileGenerator {
 
       const absoluteOutDirPath = NodePath.join(process.cwd(), currentOutDir);
       this.importMap.forEach((identifierSet, moduleSpecifier) => {
-        const relativePath = NodePath.relative(absoluteOutDirPath, moduleSpecifier).replace(
-          /\.(js|ts)$/,
-          '',
-        );
+        const isInternalModule = moduleSpecifier.startsWith(process.cwd());
 
+        /** If the module is internal, change it to the relative path */
+        const moduleName = isInternalModule
+          ? NodePath.relative(absoluteOutDirPath, moduleSpecifier).replace(/\.(js|ts)$/, '')
+          : moduleSpecifier;
         if (identifierSet.size > 0) {
           importContents.push(
-            `import { ${Array.from(identifierSet).join(', ')} } from '${relativePath}';`,
+            `import { ${Array.from(identifierSet).join(', ')} } from '${moduleName}';`,
           );
         }
       });

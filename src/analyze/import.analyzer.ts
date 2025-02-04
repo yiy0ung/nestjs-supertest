@@ -9,6 +9,10 @@ export namespace ImportAnalyzer {
 
     const customPathPair = Object.entries(configs.compileOptions?.paths ?? {});
     const extensions = ['.ts', '.js', '/index.ts', '/index.js'];
+
+    /**
+     * If the alias path is set in tsconfig, change it to the original absolute path.
+     */
     const replaceToAbsolutePath = (inputPath: string) => {
       for (const [_key, _customPaths] of customPathPair) {
         const key = _key.replace(/\/\*$/, '');
