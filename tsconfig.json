@@ -111,5 +111,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "plugins": [{ "transform": "typescript-transform-paths" }]
   },
-  "include": ["src"]
+  "include": ["src", "bundle"]
 }
