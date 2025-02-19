@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 type HeaderType = Record<string, any>;
 
 export interface SupertestClientConnectionDefaults {
-  app: INestApplication;
+  app: INestApplication | string;
   header?: Record<string, any>;
   validateStatus?: (status: number) => boolean;
 }
@@ -13,7 +13,7 @@ export interface InternalRequestConfig {
 }
 
 export class RequesterConnection {
-  private _app: INestApplication;
+  private _app: INestApplication | string;
   private _header: HeaderType;
 
   public interceptors = {
@@ -25,7 +25,7 @@ export class RequesterConnection {
     this._header = defaults.header ?? {};
   }
 
-  public get app(): INestApplication {
+  public get app(): INestApplication | string {
     return this._app;
   }
 

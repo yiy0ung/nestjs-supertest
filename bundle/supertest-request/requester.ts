@@ -39,7 +39,9 @@ export namespace Requester {
 
     const requestConfig = await connection.getRequestConfig();
 
-    let test = supertest(connection.app.getHttpServer())[method](path);
+    const supertestApp =
+      typeof connection.app === 'string' ? connection.app : connection.app.getHttpServer();
+    let test = supertest(supertestApp)[method](path);
     requestConfig.header.forEach((value, key) => {
       test = test.set(key, value);
     });
