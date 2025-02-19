@@ -1,6 +1,6 @@
 {
   "name": "nestjs-supertest",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Generate supertest request code using Nest.js API",
   "main": "index.js",
   "author": "yiyoung",
