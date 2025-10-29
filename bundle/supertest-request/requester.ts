@@ -19,6 +19,7 @@ export namespace Requester {
     method: 'post' | 'get' | 'put' | 'patch' | 'delete',
     path: string,
     params: Parameters,
+    cookies?: Record<string, string>,
   ): Promise<supertest.Response> {
     if (params.path) {
       Object.entries(params.path).map(([field, value]) => {
@@ -47,6 +48,14 @@ export namespace Requester {
     });
     if (params.body) {
       test = test.send(params.body);
+    }
+    if (cookies) {
+      test = test.set(
+        'Cookie',
+        Object.entries(cookies)
+          .map(([key, value]) => `${key}=${value}`)
+          .join('; '),
+      );
     }
     const resp = await test;
 
